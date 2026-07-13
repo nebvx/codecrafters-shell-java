@@ -1,3 +1,4 @@
+import java.util.Objects;
 import java.util.Scanner;
 
 public class REPL {
@@ -14,6 +15,7 @@ public class REPL {
             scanner = new Scanner(System.in);
             String userInput = scanner.nextLine();
             System.out.println(userInput + ": command not found");
+            if (Objects.equals(userInput, "exit")) break;
         }
     }
 
