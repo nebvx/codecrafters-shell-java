@@ -14,8 +14,8 @@ public class REPL {
             System.out.print("$ ");
             scanner = new Scanner(System.in);
             String userInput = scanner.nextLine();
-            System.out.println(userInput + ": command not found");
             if (Objects.equals(userInput, "exit")) break;
+            System.out.println(userInput + ": command not found");
         }
     }
 
