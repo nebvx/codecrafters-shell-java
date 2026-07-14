@@ -23,9 +23,11 @@ public class REPL {
             if (Objects.equals(userInputVector.getFirst(), "echo")) {
                 Echo echo = new Echo();
                 echo.run(userInput.getUserInputVector());
+            } else if (Objects.equals(userInputVector.getFirst(), "exit")) {
+                break;
+            } else {
+                System.out.println(userInput + ": command not found");
             }
-            if (Objects.equals(userInputVector.getFirst(), "exit")) break;
-            System.out.println(userInput + ": command not found");
         }
     }
 
