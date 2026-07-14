@@ -28,7 +28,6 @@ public class REPL {
             } else {
                 System.out.println(userInputLine + ": command not found");
             }
-            System.out.println();
         }
     }
 

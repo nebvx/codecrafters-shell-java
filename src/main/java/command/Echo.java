@@ -17,5 +17,6 @@ public class Echo {
             if (i > 1) System.out.print(" ");
             System.out.print(userInput.get(i));
         }
+        System.out.println();
     }
 }
