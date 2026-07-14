@@ -30,7 +30,6 @@ public class UserInput {
             wordBuilder.append(userInput.charAt(i));
         }
         separatedInput.add(wordBuilder.toString());
-        System.out.println(separatedInput);
         return separatedInput;
     }
 }
