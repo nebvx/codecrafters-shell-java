@@ -26,10 +26,9 @@ public class REPL {
             } else if (Objects.equals(userInputVector.getFirst(), "exit")) {
                 break;
             } else {
-                System.out.println(userInput + ": command not found");
+                System.out.println(userInputLine + ": command not found");
             }
             System.out.println();
-
         }
     }
 
