@@ -1,3 +1,7 @@
+import command.Echo;
+import command.UserInput;
+
+import java.util.Vector;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -13,8 +17,14 @@ public class REPL {
         while (true) {
             System.out.print("$ ");
             scanner = new Scanner(System.in);
-            String userInput = scanner.nextLine();
-            if (Objects.equals(userInput, "exit")) break;
+            String userInputLine = scanner.nextLine();
+            UserInput userInput = new UserInput(userInputLine);
+            Vector<String> userInputVector = userInput.getUserInputVector();
+            if (Objects.equals(userInputVector.getFirst(), "echo")) {
+                Echo echo = new Echo();
+                echo.run(userInput.getUserInputVector());
+            }
+            if (Objects.equals(userInputVector.getFirst(), "exit")) break;
             System.out.println(userInput + ": command not found");
         }
     }
