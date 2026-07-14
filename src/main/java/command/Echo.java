@@ -12,12 +12,11 @@ public class Echo {
 
     }
 
-    public void run (Vector<String> userInput) {
-        for(int i = 0; i < userInput.size(); ++i) {
-            if (i == 0) {
-                continue;
-            }
-            System.out.println(userInput);
+    public void run(Vector<String> userInput) {
+        for (int i = 1; i < userInput.size(); i++) {
+            if (i > 1) System.out.print(" ");
+            System.out.print(userInput.get(i));
         }
+        System.out.println();
     }
 }
