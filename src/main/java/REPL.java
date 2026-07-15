@@ -1,5 +1,5 @@
 import command.Echo;
-import command.UserInput;
+import command.Type;
 
 import java.util.Vector;
 import java.util.Objects;
@@ -23,6 +23,9 @@ public class REPL {
             if (Objects.equals(userInputVector.getFirst(), "echo")) {
                 Echo echo = new Echo();
                 echo.run(userInput.getUserInputVector());
+            } else if (Objects.equals(userInputVector.getFirst(), "type")) {
+                Type type = new Type(userInputVector.get(1));
+                type.run();
             } else if (Objects.equals(userInputVector.getFirst(), "exit")) {
                 break;
             } else {

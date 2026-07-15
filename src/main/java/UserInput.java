@@ -1,7 +1,4 @@
-package command;
-
 import java.util.Vector;
-import java.util.Collection;
 
 public class UserInput {
     String userInput;
