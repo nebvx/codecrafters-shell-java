@@ -1,6 +1,9 @@
 package command;
 
-import java.util.Vector;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Type {
     String command;
@@ -20,7 +23,21 @@ public class Type {
     }
 
     private boolean isCommandInPath() {
+        String pathEnv = System.getenv("PATH");
+        if (pathEnv == null || pathEnv.isEmpty()) {
+            return false;
+        }
 
+        String[] directories = pathEnv.split(java.util.regex.Pattern.quote(File.pathSeparator));
+        for (String dir : directories) {
+            Path fullPath = Paths.get(dir, command);
+
+            // handles non-existent directories/files gracefully
+            if (Files.exists(fullPath) && Files.isExecutable(fullPath)) {
+                System.out.println(command + " is " + fullPath);
+                return true;
+            }
+        }
 
         return false;
     }
