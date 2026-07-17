@@ -31,8 +31,6 @@ public class Type {
         String[] directories = pathEnv.split(java.util.regex.Pattern.quote(File.pathSeparator));
         for (String dir : directories) {
             Path fullPath = Paths.get(dir, command);
-
-            // handles non-existent directories/files gracefully
             if (Files.exists(fullPath) && Files.isExecutable(fullPath)) {
                 System.out.println(command + " is " + fullPath);
                 return true;
