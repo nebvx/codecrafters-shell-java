@@ -1,5 +1,6 @@
 import command.Echo;
 import command.Type;
+import command.ExternalCommand;
 
 import java.util.Vector;
 import java.util.Objects;
@@ -29,7 +30,7 @@ public class REPL {
             } else if (Objects.equals(userInputVector.getFirst(), "exit")) {
                 break;
             } else {
-                System.out.println(userInputLine + ": command not found");
+                ExternalCommand.run(userInputVector);
             }
         }
     }
