@@ -1,6 +1,7 @@
 import command.Echo;
 import command.Type;
 import command.ExternalCommand;
+import navigation.Cd;
 import navigation.Pwd;
 
 import java.util.Vector;
@@ -31,6 +32,9 @@ public class REPL {
             } else if(Objects.equals((userInputVector.getFirst()), "pwd")) {
                 Pwd pwd = new Pwd();
                 pwd.run();
+            } else if(Objects.equals((userInputVector.getFirst()), "cd")) {
+                Cd cd = new Cd(userInputVector.get(1));
+                cd.run();
             } else if (Objects.equals(userInputVector.getFirst(), "exit")) {
                 break;
             } else {
