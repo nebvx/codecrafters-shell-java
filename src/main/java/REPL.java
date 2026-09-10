@@ -1,6 +1,7 @@
 import command.Echo;
 import command.Type;
 import command.ExternalCommand;
+import navigation.Pwd;
 
 import java.util.Vector;
 import java.util.Objects;
@@ -28,7 +29,8 @@ public class REPL {
                 Type type = new Type(userInputVector.get(1));
                 type.run();
             } else if(Objects.equals((userInputVector.getFirst()), "pwd")) {
-                System.out.println(System.getProperty("user.dir"));
+                Pwd pwd = new Pwd();
+                pwd.run();
             } else if (Objects.equals(userInputVector.getFirst(), "exit")) {
                 break;
             } else {
