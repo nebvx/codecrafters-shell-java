@@ -27,6 +27,8 @@ public class REPL {
             } else if (Objects.equals(userInputVector.getFirst(), "type")) {
                 Type type = new Type(userInputVector.get(1));
                 type.run();
+            } else if(Objects.equals((userInputVector.getFirst()), "pwd")) {
+                System.out.println(System.getProperty("user.dir"));
             } else if (Objects.equals(userInputVector.getFirst(), "exit")) {
                 break;
             } else {

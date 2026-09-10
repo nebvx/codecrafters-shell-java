@@ -1,5 +1,5 @@
 package command;
 
 public enum Builtin {
-    echo, exit, type;
+    echo, exit, type, pwd;
 }
