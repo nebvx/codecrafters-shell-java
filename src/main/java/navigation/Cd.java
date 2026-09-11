@@ -20,6 +20,8 @@ public class Cd {
     public void run() {
         if(commandPath.charAt(0) == '/') { //absolute path
             cdWithAbsolutePath();
+        } else if(commandPath.charAt(0) == '~'){
+            cdToHomeDirectory();
         } else { //relative path
             cdWithRelativePath();
         }
@@ -31,6 +33,11 @@ public class Cd {
         }
 
         System.setProperty("user.dir", commandPath);
+    }
+
+    private void cdToHomeDirectory() {
+        String homeDir = System.getProperty("user.home");
+        System.setProperty("user.dir", homeDir);
     }
 
     //relative paths, like ./, ../, ./dir
