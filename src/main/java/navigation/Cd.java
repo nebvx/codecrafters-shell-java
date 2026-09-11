@@ -20,7 +20,7 @@ public class Cd {
     public void run() {
         if(commandPath.charAt(0) == '/') { //absolute path
             cdWithAbsolutePath();
-        } else { //is any letter
+        } else { //relative path
             cdWithRelativePath();
         }
     }
@@ -33,6 +33,7 @@ public class Cd {
         System.setProperty("user.dir", commandPath);
     }
 
+    //relative paths, like ./, ../, ./dir
     private void cdWithRelativePath() {
         Path absolutePath = Paths.get(System.getProperty("user.dir"), commandPath).toAbsolutePath().normalize();
         if (!Files.exists(absolutePath) || !Files.isDirectory(absolutePath)) {
