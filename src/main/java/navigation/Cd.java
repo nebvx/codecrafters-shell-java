@@ -29,14 +29,15 @@ public class Cd {
 
     private void cdWithAbsolutePath() {
         if (!Files.exists(path) || !Files.isDirectory(path)) {
-            System.err.println("cd: " + path + ": No such file or directory");
+            System.err.println("cd: " + commandPath + ": No such file or directory");
+            return;
         }
 
         System.setProperty("user.dir", commandPath);
     }
 
     private void cdToHomeDirectory() {
-        String homeDir = System.getProperty("user.home");
+        String homeDir = System.getProperty("HOME");
         System.setProperty("user.dir", homeDir);
     }
 
@@ -45,6 +46,7 @@ public class Cd {
         Path absolutePath = Paths.get(System.getProperty("user.dir"), commandPath).toAbsolutePath().normalize();
         if (!Files.exists(absolutePath) || !Files.isDirectory(absolutePath)) {
             System.err.println("cd: " + absolutePath + ": No such file or directory");
+            return;
         }
         System.setProperty("user.dir", absolutePath.toString());
     }
