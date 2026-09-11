@@ -38,7 +38,9 @@ public class Cd {
 
     private void cdToHomeDirectory() {
         String homeDir = System.getProperty("HOME");
-        System.setProperty("user.dir", homeDir);
+        if (homeDir != null) {
+            System.setProperty("user.dir", homeDir);
+        }
     }
 
     //relative paths, like ./, ../, ./dir
