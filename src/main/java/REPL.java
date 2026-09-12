@@ -3,6 +3,7 @@ import command.Type;
 import command.ExternalCommand;
 import navigation.Cd;
 import navigation.Pwd;
+import util.IgnoreQuotes;
 
 import java.util.Vector;
 import java.util.Objects;
@@ -24,6 +25,7 @@ public class REPL {
             UserInput userInput = new UserInput(userInputLine);
             Vector<String> userInputVector = userInput.getUserInputVector();
             if (Objects.equals(userInputVector.getFirst(), "echo")) {
+                IgnoreQuotes ignoreQuotes = new IgnoreQuotes(userInput.getUserInputVector());
                 Echo echo = new Echo();
                 echo.run(userInput.getUserInputVector());
             } else if (Objects.equals(userInputVector.getFirst(), "type")) {
